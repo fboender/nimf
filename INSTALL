@@ -1,0 +1,6 @@
+Just run 'make' and copy the binary 'nimf' to a dir in your path. Preferably 
+/usr/local/bin.
+
+For more information, please consult the README file provided with this 
+archive. Be sure to also check the RELEASENOTES if this is NOT the first time
+you are using Nimf.

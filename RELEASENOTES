@@ -1,0 +1,21 @@
+This file lists changes from previous versions which might break upgrading or
+should be taken notice of when installing Nimf.
+
+v0.1.0
+	The F6 is rename instead of move bug has been fixed. You'll have to 
+	change the keysym for F6 to operation_move in the key-settings dialog or 
+	remove your old ~/.nimf/keys config.
+
+v0.0.18
+	Various stuff changed in all the configuration files. You'll have to 
+	delete them, so nimf can create new ones. Sorry. 
+
+	You won't have to use the configuration examples anymore. Nimf will create
+	new configurations itself for you.
+
+v0.0.17
+	In this release the format for the 'main' configuration has changed. To
+	upgrade your configuration file to this new format, you need to open the
+	'Misc' setting from the 'Settings' menu, and toggle EACH toggle TWICE. 
+	(I know, it's butt-ugly, but who cares really?) After this, restart nimf,
+	and you should be OK.

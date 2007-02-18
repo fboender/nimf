@@ -1,0 +1,229 @@
+Nimf
+
+	Version  : %%VERSION
+	Author   : Ferry Boender <%%EMAIL> (please do not publish this email address)
+	License  : General Public License
+	homepage : %%HOMEPAGE
+
+	Nimf is a two (or more) panel filemanager ala Norton Commander for X,
+	programmed in C using the Gtk toolkit. It's main goal will be to create
+	a full featured file manager which adheres to 'The law of least
+	astonishment'.
+
+Table of contents
+
+	1. About Nimf
+	2. Current features
+	3. Project goals
+	4. Installation
+	   4.1. Requirements
+	   4.2. Compiling
+	   4.3. Configuring
+	5. Feedback / Contributing.
+	   5.1. Credits
+	6. Legal stuff
+	7. Author
+
+1. About Nimf
+
+	Nimf is a two (or more) panel filemanager like Norton Commander and
+	Midnight Commander. It runs in X for it is programmed in C using Gtk.
+	It does not require Gnome or anything other than the Gtk developement
+	headers. By default it has the same keybindings as Norton Commander has
+	(i.e. F5 = Copy, F7 = Create new dir, etc). One of the goals of this
+	project is to create an easy to use filemanager, which can do the 
+	things that are hard to do at the command prompt. For a full list of
+	(current and planned) features, see the 'Project Goals' section.
+
+	This project was started for a couple of different reasons. First of 
+	all, it was started due to me being unsatisfied with just about ALL
+	filemanagers for Linux. They are either too slow, too huge, too
+	good-looking (which can become quite irritating), don't work well with
+	the keyboard, are hard to use, etc. The best filemanager yet is, imho,
+	emelfm. But even emelfm has some irritations. I could have just taken
+	the emelfm source, and modified it to suit my needs ofcourse. But
+	another reason for starting this project is because I wanted to program
+	something in C using Gtk, and a filemanager seemed like I nice idea. As
+	many programmers, I program for fun. Nimf has been (and still is) fun to
+	work on.
+
+2. Current features.
+
+	Nimf currently includes these features:
+
+	* Threaded execution of file operations.
+	* Dual panel file operations.
+	  Two panels which allow you to copy, move, delete, view files, change 
+	  rights, change ownership and perform other basic file operations on 
+	  files. For a lot of operations confirmation (and destination) dialogs 
+	  are presented, so you can i.e. copy the current selection of files to 
+	  each dir you enter. Most file-oriented operations (like copy, etc) are 
+	  done in threads, so you can continue using the program while the 
+	  operation is being performed.
+	* Extention based executing
+	  You can configure Nimf, so it will allow you to execute programs based
+	  on the extention of the file currently under the cursor. 
+	* Jump search
+	  By typing a (partial) filename, you can jump to the file in the
+	  current panel.
+	* Bookmarks
+	  When pressing the 'B' button in the interface, the current directory
+	  will be added to the bookmarks. If it already was bookmarked, it will
+	  be removed.
+	* Configuration editors for Actions, Misc ('main') and Keys configuration 
+	  options.
+
+3. Project goals
+
+	Basic project goals:
+
+	* Full keyboard support.
+	  Everything should be easily accessible from the keyboard
+	* Configurability
+	  Many useless configurable options! Some usefull too.
+	* Fast, lightweight
+	  Nimf will be fast (both in start up and in operations) and small with
+	  few dependencies
+	* Adhere to 'The law of least astonishment'
+	  If you're a Norton Commander or Midnight Commander user, and you go
+	  'huh?' with Nimf, it'll need to be fixed.
+	* Extended
+	  Nimf will include many usefull options to ease working with it and help
+	  manage your files. I'm thinking along the lines of auto-mounting, file
+	  splitting, encryption of files, virtual filesystem (accessing tar.gz 
+	  files), etc.
+
+	Extended project goals (features):
+
+	* Virtual File System
+	  Access from Nimf to packaged files (.zip, .tar.gz, .deb, etc), FTP,
+	  Http, etc.
+	* File launching
+	  Advanced and easy to set up file lauching abilities (i.e. viewing
+	  images, running executables, etc) by extention.
+	* Quick operations
+	  Operations on files which are hard to do from the commandline, like
+	  mass-renaming of files, recursive chmodding and chowning, etc
+	* Statistics
+	  Quickly be able to bring up statistics on free disk space, space
+	  occupied by (selections of) files, quota viewing, etc
+	* Tree view
+	  The ability to bring up a panel with a tree, or make on of the panels
+	  contain a tree, which can be used to quickly change directories,
+	  copy/move/delete stuff, etc.
+
+4. Installation
+
+4.1. Requirements
+
+	In order to compile Nimf, you will need:
+
+		* A c compiler (Nimf was developed with gcc)
+		* Gtk 1.2+ (developement headers)
+		* Glib (Gtk depends on it)
+
+		(Debian: libgtk1.2-dev package will do the trick.)
+
+	In order to run Nimf, you will need:
+
+		* Gtk 1.2+
+
+4.2. Compiling
+
+	To compile Nimf, simply run 'make' in the Nimf source directory. Please
+	report any errors you get to me.
+
+4.3. Configuring
+
+	Since version 0.0.18, Nimf has a GUI for the settings. Misc, keys and 
+	actions no longer have to be edited manually using textfiles. Some changes
+	had to be made to the configuration files, therefor you will not be able
+	to keep your old configartion files. (also see RELEASENOTES) 
+
+	When configuring commands which will be run (like the Editor and actions),
+	you should know that %s will be substituted for the currently selected
+	file in the current panel. It's also a good idea to enclose the %s with
+	double quotes ("%s"), because the command will be run through a shell, and
+	that will clash with any spaces or weird chars in the filename.
+
+	When starting nimf for the first time, a default configuration will be
+	saved in your home directory under the .nimf/ dir. 
+
+5. Feedback / Contributing.
+
+	Feedback is always appreciated. At this moment the most welcome feedback
+	is:
+
+		* Bug reports
+		* Installation problems
+		* Code peer reviews (design flaws, code enhancements, etc)
+
+	You can send it to my email address (see the 'Author' section). At this
+	moment I'm less interested in feature requests, because the project is
+	still in a very early stage. But if you must, you can still send it to
+	me.
+
+	If you are thinking about contributing code to this project, please 
+	keep the following in mind:
+
+		* Send in patches, created with the appropriate tools (diff).
+		* Maintain the current code layout/style, eventhough it's 
+		  crappy.
+		* Take notice of the projectgoals. Your patch should add
+		  features which are planned in the goals, or are at least
+		  somewhat along the same lines. So if you send in a patch
+		  which will make Nimf into a 3D file manager, I'll probably
+		  reject the patch. Bug-fixing patches are almost always
+		  welcome.
+
+	I may reject patches because they do not conform with the 'rules' state,
+	or for any other reason that I see fit. Please do not be insulted when
+	I reject your patch. I will almost always tell you the reason why it was
+	rejected.
+
+	If you think about contributing code to Nimf, you might first want to
+	send me an email to see if I have any use for what you are thinking of.
+
+	Patches that do not fit in my project goals for Nimf (and may still be
+	usefull for others) will be provided in the source package if I see fit.
+	
+5.1. Credits
+
+    I'd like to thank the following people for their help on Nimf:
+
+	Jaap jan "Aromog" Kerkmeester : Testing, various suggestions.
+	Ruben "_Cyclops_" d'Arco      : Testing, various suggestions.
+	
+6. Legal stuff
+
+	Nimf is Copyright by Ferry Boender, licensed under the General Public
+	License (GPL)
+
+	Copyright (C), 2002 by Ferry Boender
+
+	This program is free software; you can redistribute it and/or modify it
+	under the terms of the GNU General Public License as published by the Free
+	Software Foundation; either version 2 of the License, or (at your option)
+	any later version.
+
+	This program is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+	or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License
+	for more details.
+
+	You should have received a copy of the GNU General Public License along
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	675 Mass Ave, Cambridge, MA 02139, USA.
+
+	For more information, see the COPYING file supplied with this program.
+
+7. Author
+
+	Nimf created by:
+
+		Ferry Boender <%%EMAIL> (Please do not publish this email address)
+		Homepage: %%HOMEPAGE
+		
+
+	(for address information, please email me. I can't just put my home
+	address on the internet now, can I?)

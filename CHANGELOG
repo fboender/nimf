@@ -1,0 +1,270 @@
+Nimf: ChangeLog
+------------------------------------------------------------------------------
+
+Please do not spread the email addresses in this file.
+
+[%%VERSION] <%%EMAIL> ( %%DATE )
+  * 
+
+[0.1.1] <%%EMAIL> ( Sun Apr  4 12:44:06 CEST 2004 )
+  * Panel     : Optimizations in the calling of panel_info_update. Makes large
+                selections faster.
+  * Panel     : Refresh can now be forced so complete dir is reread instead of 
+                diffed with in-memory version.
+  * Operations: Current file that is being worked on is now shown in progress.
+  * Operations: Added chmod dialog and functionality.
+  * Operations: Added chmod dialog and functionality.
+
+[0.1.0] <%%EMAIL> ( Wed May 14 18:22:31 CEST 2003 )
+  * Config    : The F6 is rename instead of move bug has been fixed. You'll
+                have to change the keysym for F6 to operation_move in the 
+                key-settings dialog or remove your old ~/.nimf/keys config.
+  * Panel     : Bug fix for the bug where hidden files wouldn't show. 
+                panel->showhiddenfiles is now initialized at 0.
+
+[0.0.21] <%%EMAIL> ( Mon May  5 15:33:05 CEST 2003 )
+  * Panel     : Letters are no longer added to jumpsearch if they yield no 
+                result.
+  * Panel     : Fixed the toggle-hidden-button bug in which the key-combo for
+                toggling hidden file-view wouldn't work because it recursively
+                triggered the 'clicked' event for the button, which in turn 
+                called the panel_toggle_hidden() function. The key handling
+                now just emits a clicked signal.
+  * Jumpsearch: Fixed bug where you couldn't search for files starting with
+                a period.
+  * Config    : Fixed buffer overflow bug in config_get_key()
+  * Settings  : Multiple user interface enhancements were made. Keyboard 
+                handling is better. Correct fields are autoamtically focussed.
+  * Cmdline   : Initial version of the commandline bar.
+  * Cmdline   : Added key sym for focussing the commandline. (focus_cmdline)
+  * Cmdline   : Output bar added.
+  * Cmdline   : Escape now returns you to the panel.
+  * Cmdline   : Output is now shown for commands.
+  * Cmdline   : Added functions for opening/closing/toggling the cmdline output.
+  * Nimf      : Main widget creation adapted for separator with dragbutton.
+                output bar can now be enlarged.
+  
+[0.0.20] <%%EMAIL> ( Sat Mar 29 14:26:37 CET 2003 )
+  * Nimf      : Fixed jump search bug due to new key configuration scheme.
+  * Panel     : Fixed 'sort dirs case sensitive' setting. It was reversed.
+  * Panel     : Fixed bug where keys wouldn't work if numlock was turned on.
+  * Panel     : Optimizations in the panel refresh routine.
+  * Panel     : Made improvements (I hope) on the panel scrolling routines
+                after updates in the panel.
+
+[0.0.18] <%%EMAIL> ( Sun Mar  2 17:01:38 CET 2003 )
+  * Nimf      : Improved 'about' dialog.
+  * Settings  : Fixed bug in extention handling.
+  * Settings  : Key configuration editor.
+
+[0.0.17] <%%EMAIL> ( Wed Feb 12 19:25:17 CET 2003 )
+  * Somehow the COPYING file, containing the GNU License was empty. Corrected.
+  * Menu bar added.
+  * Settings  : User interface for action editing added. (crude)
+  * Settings  : User interface for 'misc' settings added. (crude)
+  * Panel     : Fixed beep when displaying keys during jumpsearch
+  * Panel     : 'Hidden' is now a toggle button.
+  
+  -- 0.0.17 was released two times, due to mispackaging. The faulty 
+  package was online for only a couple of hours, so I didn't bother to
+  update the version number.
+
+[v0.0.16] <%%EMAIL> ( Tue Jan 28 00:09:33 CET 2003 )
+  * File      : Progress is now reported after a part of the operation has
+                completed.
+  * Panel     : Path entry at the top of the panels is now automatically 
+                selected when focussing using the keysym (ctrl-l).
+  * Panel     : Going one dir up when in root ('/') bugs fixed (cursor would
+                leave panel, etc)
+  * Config    : If no configuration exists, nimf automatically creates a 
+                default one in the user's home dir.
+  * Panel     : Added bookmarks support.
+  * Panel     : Fixed scrolling to right of file list when calling dirup and the
+                dir contained a large filename. Problem caused by GDK_Left, which
+                scrolled the list somehow.
+
+[v0.0.15] <%%EMAIL> ( Mon Jan 6 20:35:20 CET 2002 )
+  * Panel     : Added keysym for focusing the pathentry textbox.
+  * Panel     : Fixed segfault in jumpsearch backspace routine.
+  * Nimf      : Bar in the bottom of the interface now consists of 
+                working buttons, instead of just text.
+  * Panel     : During operations, panels will not be updated. This
+                increases speed.
+  * Panel     : Current active panel is now remembered through sessions.
+  * Panel     : Added pattern file selection. Use grey-plus and grey-minus.
+  * Dialogs   : Text in entry widgets is now automatically selected when
+                dialog first pops up, so text can immediatelly be overwritten.
+  * Panel     : Keysym for hidden toggle and Home button.
+  * Dialogs   : Removed 'cancel' button from dialog_error(), since it
+                was useless.
+  * Config    : Added configuration option 'show_keys' (yes/no) for showing
+                the currently pressed key. This is temporary for the lack of
+                keysym-editor.
+
+[v0.0.14] <%%EMAIL> ( Sun Dec 15 18:35:45 CET 2002 )
+  * Removed various debugging messages from source
+  * Operations: Added a progress dialog with percentage progress bar and
+                current selected item being processes.
+  * Panel     : 'Last Change' column in the list is now hidden.
+  * Operations: Selected files are now unselected after operation is done.
+
+[v0.0.13] <%%EMAIL> ( ?? )
+  * Updated the Makefile, it now uses some variables, etc.
+  * Panel     : Fixed memory leak in panel_refresh_timeout().
+  * Panel     : New panel refreshing routine (panel_refreshdir) which does not 
+                rebuild the complete list, but removes/adds/updates instead.
+  * Config    : Keys are now set in a config file.
+  * Panel     : panel_updatedir is now known as panel_refresh. panel_refresh is
+                no more. 
+  * Panel     : Made panel_refresh more robust.
+  * Operations: Made file_ functions which perform actions (copy/del) on files
+                more uniform and added 'cancel' button to operations.
+  * File      : Fixed bug where dir_del would not adhere to 'cancel' actions.
+  * Panel     : If refresh failed (dir couldn't be read), panel staid frozen
+                witch caused problems.
+  * Panel     : Built panel_change_dir wrapper function for changing dirs in 
+                panels which takes care of any failed directory readings.
+
+[v0.0.12] <%%EMAIL> ( Mon Aug 26 19:08:37 CEST 2002 )
+  * Operations: Added a quick hack for renaming files (ctrl-f6).
+  * Operations: Default behaviour is not to resolve symlinks during operations.
+                This should temporary fix recursive copy/move/del bugs.
+  * Panel     : Fixed bug which caused the list to scroll to the right when 
+                executing a file with the right-arrow.
+  * Panel     : Panels are now disabled during operations.(panel_enable/disable)
+  * Panel     : Sorting (asc/desc) by filename and size now supported.
+  * Panel     : Fixed an irritation-bug. When selecting a file the list now 
+                does not scroll the file to the center of the list.
+  * Panel     : Cursor now stays on file under cursor on panel sort.
+  * Panel     : Fixed various bugs which occured when the path in a panel was
+                not set. (NULL)
+  * Panel     : Automatic refresh of dirs on change.
+
+[v0.0.11] <%%EMAIL> ( Mon Aug 19 02:37:57 CEST 2002 )
+  * Panel     : Fixed foccused-panel cursor again. Inactive panel's cursor is 
+                now removed after a refresh.
+  * Operations: Added framework for reading actions from dialogs during 
+                operations
+  * Operations: Added framework for reporting progress during operations.
+  * Config    : Last window size is now saved when exiting Nimf.
+  * Config    : config_changevalue now adds key if it didn't exist.
+  * Panel     : During an operation, the current file on which is being 
+                operated is shown in the file info line.
+  
+[v0.0.10] <%%EMAIL> ( Mon Jul 22 22:03:00 CEST 2002 )
+  * Operations: Destination paths for operations can now be relative.
+  * Operations: File attributes are now preserved.
+  * Operations: Move across devices implemented.
+  * Operations: bugfix: .. is no longer operated on.
+  * Operations: Reimplemented edit.
+  * Operations: Symlinks are now correctly deleted.
+  * Panel     : PgUp/PgDown bug in file list scroll fixed. Jumpfile problem.
+  * Panel     : Removed unnecessary panel_updates which made selecting slow.
+  * Panel     : '..' not counted in "#/# files selected".
+  * Panel     : Only the focussed panel has a cursor.
+  * Config    : Added new functions for adding key/val pairs, changing values 
+                and saving configs as well as a function for creating new 
+                configs.
+  * Config    : Last directories you viewed in panels are now remembered.
+  * Config    : New configuration is made when nimf is being run for the first 
+                time.
+  
+[v0.0.9] <%%EMAIL> ( Fri Jul 12 02:20:32 CEST 2002 )
+  * Added various file selection routines to panel.c
+  * Fixed various memory leaks.
+  * Various bugfixes.
+  * Config    : Better function comment blocks in .h file.
+  * Nimf      : F10 now exits.
+  * Operations: Files are now unselected after operations.
+  * Panel     : Infobox now shows where links point.
+  * Panel     : Added refresh button.
+  * Panel     : Jump search can now be case insensitive. (using config)
+  * Operations: Complete rewrite of operations handling. Operations are now started
+                in a thread. Functions have been written in order to handle the 
+                reports provided by file_ functions (through a pipe).
+  * Panel     : Refresh is now done through a timeout function. Refresh triggered
+                when p->refresh = 1.
+  
+[v0.0.8] <%%EMAIL> ( Sat Jun 15 12:59:01 CEST 2002 )
+  * Fixed segfault which occured when uid or gid wasn't known on local system.
+  * List      : View: Added coloring for symlinks.
+  * List      : Sorting: Dirs are now first when sorting. (can be turned off in 
+                config)
+  * List      : View: Filesize now shown.
+  * List      : Re-enabled and fixed jump search capabilities.
+  * List      : Unified file coloring into one function panel_colorrow.
+  * List      : New selection scheme. Doesn't use gtk clist selection anymore, but 
+                nimf now keeps his own list.
+  * Run       : Fixed segfault on file with no extention. file_ext now returns 
+                NULL if the file has no extention.
+  * Panel     : Panels are now blocked during copy/move/etc.
+  * Panel     : Panel info box now shows some selected files summary.
+  * Operations: A file can now be copied directly to a file with a different 
+                name (clone) in any path or the current path.
+  * Operations: A file can now be renamed using 'move', either to the current
+                path or a different path.
+  * Operations: Updated operations to work with new selection scheme.
+  * Dialogs   : Dialogs now have titles.
+
+[v0.0.7] <%%EMAIL> ( Sat Apr  6 18:31:21 CEST 2002 )
+  * Code clean up on configuration stuff.
+  * Added default values for configuration options.
+  * F4 edits file. Editor settable in main configuration file.
+  * Fixed some potention buffer overflow bugs.
+  * Added common enterpath dialog and replaced some sections in the code
+    to make use of the new common dialog.
+  * config_read now strips newlines from config options
+  * Jump search ability. Type a..z A..Z to jump to a file in a panel. Needs
+    some more work.
+  * Documentation update
+
+[v0.0.6] <%%EMAIL> ( Fri Mar  8 18:38:16 CET 2002 )
+  * Panel Info line now shows user-understandable information.
+  * Panels start up in current directory.
+  * Fixed bug where files selected by keyboard wouldn't work when not first
+    clicked in panel with mouse.
+  * Added some error dialogs to various failures.
+  * Hacked up a extention->action configuration file.
+  * First public release
+
+[v0.0.5] <%%EMAIL> ( Fri Mar  1 15:48:14 CET 2002 )
+  * Code cleanup
+  * Dir up now set's cursor on previous dir
+  * '..' works.
+  * Recursive directory/file copy.
+  * Recursive directory/file delete.
+  * Recursive directory/file move (also across diff file systems)
+  * Make dir works (sorta) 
+
+[v0.0.4] <%%EMAIL> ( Sat Feb 23 11:26:01 CET 2002 )
+  * More code moving (trying to find the right layout)
+  * Tab now switches between panels
+  * Left panel now has focus on startup
+  * Added very basic file information support to infobox in panels
+  * Basic file deletion support
+  * Basic file copy support
+  * Renamed stuff to Nimf (non irritating manager of files)
+
+[v0.0.3] <%%EMAIL> ( - )
+  * Cursor on first file after readdir & focus set to panel.
+  * readdir now strips leading '/'s (unless root dir)
+  * panels now have the right movement and selection operating mode
+  * Enter (filerun), Backspace (dirup), Home (totop), End (tobottom) work
+  * Code cleanup
+  * Colored dirs (this - needs - a - code - cleanup!!!!) :)
+  
+[v0.0.2] <%%EMAIL> ( Thu Feb 21 00:18:43 CET 2002 )
+  * The path entry box can now be used to change the directory. Needs review
+  * Items in panels can now be clicked. if it's a dir, it will be loaded in 
+    the panel.
+  * default (hardcoded) sorting added to panels
+  * Commented various bits of code
+  * Divided source in panel.c and fm.c
+  * Created Makefile
+  * Added application exit routine (window destroy event)
+  * Bugfixes
+  * Dir up button ([..]) now works.
+  * Dir root button ([/]) added.
+  * Dir home button ([~]) added.
+  * Toggle hidden files button ([H]) added.
+  * readdir now checks if dir is valid and else fails

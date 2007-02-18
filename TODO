@@ -1,0 +1,65 @@
+[ ]All
+	[ ]file_info() returned information needs to be freed?
+	[X]Autmatic selection of text on textfield focus
+	[X]Default configuration in /usr/something, which is copied to the user's homedir when first started
+	[ ]Memory leaks fix
+	[ ]Check for free-ing of color allocation (should this be done?)
+	[ ]DirMove has no error checking?
+	[ ]'Abort the copy of this dir' fix?
+	[ ]Code for 'select_" should be renamed to 'cursor_'
+[ ]Operations
+	[ ]Overwrite warnings
+	[ ]Force overwrite
+	[ ]Preserve attributes
+	[ ]Progressbar fails when operating on many (small files)
+	[ ]Directory deletion (in /home/todsah/fx/) leaves dir sorted wrongly.
+	[ ]Progressbaar sometimes does not show the path correctly (String overflow somewhere) instead, it shows garbage.
+	[ ]Refresh in dir with lots of traffic locks up nimf.
+	[ ]Progressbar dialog does not have a cancel button.
+	[ ]Multiple progressbars. 1 for total progress, 1 for current file progress.
+	[ ]When no editor is assigned, the default ($EDITOR) should be used.
+	[ ]Pattern copy/move ala mmv
+	[ ]Delete operations shouldn't move cursor to the top of the list.
+	[ ]Delete should have a confirmation panel (optional, settable in config)
+	[ ]Read executeds program's exit code's and show std_err if not OK.
+[ ]Keys
+	[ ]Commandline option for displaying key numbers.
+	[ ]Keysyms for:
+		[X]Hidden files
+		[X]Home
+		[ ]Root
+		[X]Refreshdir
+[ ]Panel
+	[ ]A click anywhere in the panel should focus it. 
+	[ ]AUto update routine does not take in account change of ownership of files.
+	[ ]CD'ing into a rw_rw____ dir (no execute) causes nimf to segfault.
+	[ ]Cancle button doesn't work in pattern select dialog.
+	[ ]Colors for executable files and symlinks, etc
+	[ ]Dead symlinks should be displayed in a different color.
+	[ ]Do not move cursor during panel_refresh_timeouts.
+	[ ]Keep the selection during a reread unless an operation was performed.
+	[ ]Methode for jumping to next jumpsearch match
+	[ ]Move panel_find_row_from_text to gtk_addons.c
+	[ ]On creation of a new dir move to this dir in the panel.
+	[ ]Recursive dir del resolves symlinks?
+	[ ]Refresh directly after reading a new dir causes the cursor to move.
+	[ ]Running an action (view/edit) on a file causes the cursor to also be displayed in the other panel after completion.
+	[ ]Sort does no keep in mind symlinks which point to dirs when sorting.
+	[ ]Toggling hidden (ctrl-h) moves cursor to previous file it was on, but the list does not show it correctly (move list)
+	[X]'Hidden' toggle button should represent current state. (toggle button)
+	[X]Dir up in root ('/') dir shows weird behaviour. Cursor leaves focus and does not stay on previous dir.
+	[X]Entering a dir with lots of files (/usr/share/galeon/) leaves list scrolled wrong.
+	[X]Error message when dir can't be read is shown twice
+	[X]Fallback method when dir can't be read
+	[X]When DirUp()-ing with the left arrow key, and the parent dir contains a large filename, the window will scroll to the right, which it should not.
+[ ]Nimf
+	[ ]Commandline option for displaying key numbers.
+[ ]Dialogs
+	[ ]Some dialogs contain useless buttons (cancel for msgs)
+[ ]Config
+	[ ]When no editor is assigned, the default ($EDITOR) should be used.
+	[ ]Position saving of Nimf window doesn't work?
+[ ]Interface
+	[ ]Colors should be settable in a configartion file
+[X]Jumpsearch
+	[X]Jumpsearch beeps?
